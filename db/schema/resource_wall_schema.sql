@@ -53,3 +53,4 @@ CREATE TABLE ratings (
   resource_id INTEGER REFERENCES resources(id) ON DELETE CASCADE,
   rating SMALLINT
 );
+

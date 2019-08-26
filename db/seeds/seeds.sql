@@ -2,16 +2,16 @@
 --VALUES TO USERS TABLE--
 
 INSERT INTO users (user_name, email, password, avatar_url) VALUES
-('Chai', 'chai@gmail.com', 'chai', 'https://cdn.iconscout.com/icon/free/png-256/avatar-369-456321.png'),
-('Ris', 'ris@ymail.com', 'ris', 'https://img.icons8.com/officel/80/000000/name.png'),
-('Josh', 'josh@gmail.com', 'josh', 'https://img.icons8.com/officel/80/000000/name.png'),
-('Andy', 'andy@ymail.com', 'andy', 'https://img.icons8.com/officel/80/000000/name.png'),
-('Will', 'will@gmail.com', 'will', 'https://img.icons8.com/officel/80/000000/name.png'),
-('Gary', 'gary@ymail.com', 'gary', 'https://img.icons8.com/officel/80/000000/name.png'),
-('Peter', 'peter@gmail.com', 'peter', 'https://img.icons8.com/officel/80/000000/name.png'),
-('Jarrod', 'jarrod@ymail.com', 'jarrod','https://img.icons8.com/officel/80/000000/name.png'),
-('Cathy', 'cathy@gmail.com', 'cathy', 'https://cdn.iconscout.com/icon/free/png-256/avatar-369-456321.png'),
-('Nancy', 'nancy@ymail.com', 'nancy', 'https://cdn.iconscout.com/icon/free/png-256/avatar-369-456321.png');
+('Chai', 'chai@gmail.com', 'chai', 'https://cdn.iconscout.com/icon/free/png-256/avatar-369-456321.png', '2019-01-01'),
+('Ris', 'ris@ymail.com', 'ris', 'https://img.icons8.com/officel/80/000000/name.png', '2019-02-02'),
+('Josh', 'josh@gmail.com', 'josh', 'https://img.icons8.com/officel/80/000000/name.png', '2019-03-03'),
+('Andy', 'andy@ymail.com', 'andy', 'https://img.icons8.com/officel/80/000000/name.png', '2019-04-04'),
+('Will', 'will@gmail.com', 'will', 'https://img.icons8.com/officel/80/000000/name.png', '2019-05-05'),
+('Gary', 'gary@ymail.com', 'gary', 'https://img.icons8.com/officel/80/000000/name.png', '2019-06-06'),
+('Peter', 'peter@gmail.com', 'peter', 'https://img.icons8.com/officel/80/000000/name.png', '2019-07-07'),
+('Jarrod', 'jarrod@ymail.com', 'jarrod','https://img.icons8.com/officel/80/000000/name.png', '2019-08-08'),
+('Cathy', 'cathy@gmail.com', 'cathy', 'https://cdn.iconscout.com/icon/free/png-256/avatar-369-456321.png', '2019-09-09'),
+('Nancy', 'nancy@ymail.com', 'nancy', 'https://cdn.iconscout.com/icon/free/png-256/avatar-369-456321.png', '2019-10-10');
 
 
 --VALUES TO RESOURCES TABLE--
@@ -39,3 +39,4 @@ INSERT INTO categories (name) VALUES
 ('Lifestyle'),
 ('Photography'),
 ('Outdoor');
+
