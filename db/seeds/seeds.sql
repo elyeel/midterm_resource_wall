@@ -1,7 +1,7 @@
 
 --VALUES TO USERS TABLE--
 
-INSERT INTO users (user_name, email, password, avatar_url) VALUES
+INSERT INTO users (user_name, email, password, avatar_url, date_join) VALUES
 ('Chai', 'chai@gmail.com', 'chai', 'https://cdn.iconscout.com/icon/free/png-256/avatar-369-456321.png', '2019-01-01'),
 ('Ris', 'ris@ymail.com', 'ris', 'https://img.icons8.com/officel/80/000000/name.png', '2019-02-02'),
 ('Josh', 'josh@gmail.com', 'josh', 'https://img.icons8.com/officel/80/000000/name.png', '2019-03-03'),
