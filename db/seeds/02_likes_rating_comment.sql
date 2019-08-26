@@ -1,6 +1,6 @@
 -- likes, ratings, comments table seeds here (Example)
 
-INSERT INTO likes (user_id, resource_id) VALUES
+INSERT INTO likes (user_id, resource_id, val) VALUES
 (1, 1, 1),
 (1, 4, 0),
 (2, 2, 0),
@@ -30,3 +30,4 @@ INSERT INTO ratings (user_id, resource_id, rating) VALUES
 (2, 8, 3),
 (5, 6, 2),
 (5, 4, 4);
+
