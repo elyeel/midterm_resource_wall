@@ -29,7 +29,7 @@ CREATE TABLE resources (
   title VARCHAR(255) NOT NULL,
   category_id INTEGER NOT NULL REFERENCES categories(id) ON DELETE CASCADE ,
   description VARCHAR(255) NOT NULL,
-  resource_img VARCHAR(255)
+  resource_img VARCHAR(255) DEFAULT NULL
 );
 
 CREATE TABLE likes (
