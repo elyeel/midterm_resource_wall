@@ -22,18 +22,19 @@ module.exports = (db) => {
     //       .status(500)
     //       .json({ error: err.message });
     //   });
-    console.log('Time:', Date.now());
-    res.render("views/index.ejs");
+    res.render("index");
   });
 
-
+  console.log("registering login routes");
   router.get("/login", (req, res) => {
 
-    db.query(`SELECT * FROM users;`)
-    .then((results) => {
-      res.json(results);
-    });
+    // db.query(`SELECT * FROM users;`)
+    // .then((results) => {
+    //   res.json(results);
+    // });
+    res.render("views/login");
   });
+
   return router;
 };
 
