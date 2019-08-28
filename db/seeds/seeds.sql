@@ -37,9 +37,6 @@ INSERT INTO resources (title, description, url, category_id, user_id) VALUES
 ('Discover new gems in the city', 'Solve a trail of riddles on your phone. Unlock hidden gems, stories and local recommendations.', 'https://www.secretcitytrails.com/', 4, 2);
 
 
-
-
-
 --VALUES TO LIKES TABLE--
 
 INSERT INTO likes (user_id, resource_id, val) VALUES
