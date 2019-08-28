@@ -1,5 +1,5 @@
 <% include ./head.ejs %>
-<nav>
+<!-- <nav>
   <div>
     <a href="/">Resource Wall</a>
   </div>
@@ -8,4 +8,27 @@
     <a href="/register">Register</a>
     <a href="/">Login</a>
   </div>
-</nav>
+</nav> -->
+
+<header>
+  <nav class="navbar navbar-expand-md navbar-dark bg-success">
+    <a class="navbar-brand" href="/">RESOURCE WALL</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+      <div class="navbar-nav">
+        <a class="nav-item nav-link" href="/search"><b>SEARCH</b></a>
+      </div>
+      <div class="ml-auto p-2 bd-highlight">
+        <span class="form-inline">
+          <div class="navbar-nav navbar-right">
+            <a class="nav-item nav-link" href="/login"><b>LOGIN</b></a>
+            <a class="nav-item nav-link" href="/register"><b>REGISTER</b></a>
+          </div>
+        </span>
+      </div>
+    </div>
+  </nav>
+</header>
+
