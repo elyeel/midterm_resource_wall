@@ -1,65 +1,11 @@
-
 <% include ./head.ejs %>
-
-<nav class="navbar navbar-expand-lg navbar-dark bg-success">
-  <a class="navbar-brand" href="/resources">Resource Wall</a>
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-  </button>
-
-  <div class="collapse navbar-collapse" id="navbarSupportedContent">
-    <ul class="navbar-nav ml-auto">
-      <% if (user) { %>
-        <li>
-          <a class="navbar-brand mb-0 welcome"><%= user.user_name%></a>
-        </li>
-        <li class="nav-item">
-          <a href="/users/<%= user.id %>" class="btn" data-container="body" data-trigger="hover" data-toggle="popover" data-placement="bottom" data-content="Profile"><i class="fas fa-user-circle fa-lg"></i></a>
-        </li>
-        <li class="nav-item">
-          <a href="/users/<%= user.id %>/resources" class="btn" data-container="body" data-trigger="hover" data-toggle="popover" data-placement="bottom" data-content="My Resources"><i class="fas fa-book-open fa-lg"></i></a>
-        </li>
-        <li class="nav-item">
-          <a href="/resources/new" class="btn" data-container="body" data-trigger="hover" data-toggle="popover" data-placement="bottom" data-content="Add Resources"><i class="fas fa-plus fa-lg"></i></a>
-        </li>
-        <li class="nav-item">
-          <form action="/logout" method="post">
-            <button type="submit" class="btn" data-container="body" data-trigger="hover" data-toggle="popover" data-placement="bottom" data-content="Logout"><i class="fas fa-sign-out-alt fa-lg"></i></button>
-          </form>
-        </li>
-        <li class="nav-item">
-          <a href="" id="search-icon" class="btn" data-container="body" data-trigger="hover" data-toggle="popover" data-placement="bottom" data-content="Search"><i class="fas fa-search fa-lg"></i></a>
-        </li>
-
-      <% } else { %>
-        <!-- Button trigger modal -->
-        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#login-modal">LOGIN</button>
-        <button type="button" class="btn btn-success" data-toggle="modal" data-target="#register-modal">REGISTER</button>
-        <a href="" id="search-icon" class="btn" data-container="body" data-trigger="hover" data-toggle="popover" data-placement="bottom" data-content="Search"><i class="fas fa-search fa-lg"></i></a>
-      <% } %>
-    </ul>
+<nav>
+  <div>
+    <a href="/">Resource Wall</a>
+  </div>
+  <div class='rightbox'>
+    <a href="/search">Search</a>
+    <a href="/register">Register</a>
+    <a href="/">Login</a>
   </div>
 </nav>
-<br>
-<div class="container" id="search-form">
-  <form action="/resources/search" method="get">
-    <div class="form-group">
-      <input type="search" name="query" class="form-control">
-    </div>
-    <button type="submit" class="btn btn-primary">SEARCH</button>
-  </form>
-</div>
-
-<% if (success && success.length > 0) { %>
-<br>
-<div class="container">
-  <div class="alert alert-success" role="alert"><%= success %></div>
-</div>
-<% } %>
-<% if (error && error.length > 0) { %>
-<br>
-<div class="container">
-    <div class="alert alert-danger" role="alert"><%= error %></div>
-</div>
-<% } %>
-

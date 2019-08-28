@@ -15,6 +15,7 @@ const morgan     = require('morgan');
 // PG database client/connection setup
 const { Pool } = require('pg');
 const dbParams = require('./lib/db.js');
+// const database = require('./querydb.js'); // disabled for using db instead
 const db = new Pool(dbParams);
 db.connect();
 
@@ -44,11 +45,34 @@ app.use("/styles", sass({
 app.use(express.static("public"));
 app.use(flash());
 
+<<<<<<< HEAD
 
 //Mount all resource routes
 app.use("/api/users", usersRoutes(db));
 const routes = require('./routes/routes.js');
 app.use('/', routes);
+=======
+// Separated Routes for each Resource
+// Note: Feel free to replace the example routes below with your own
+const routes = require("./routes/routes");
+app.use("/", routes(db));
+
+// const widgetsRoutes = require("./routes/widgets");
+
+// Mount all resource routes
+// Note: Feel free to replace the example routes below with your own
+// app.use("/api/users", usersRoutes(db));
+// app.use("/api/widgets", widgetsRoutes(db));
+// Note: mount other resources here, using the same pattern above
+
+
+// Home page
+// Warning: avoid creating more routes in this file!
+// Separate them into separate routes files (see above).
+// app.get("/", (req, res) => {
+//   res.render("index");
+// });
+>>>>>>> 7271f74ce79611fbd54fcaedeb4670f416388bd9
 
 app.listen(PORT, () => {
   console.log(`Example app listening on port ${PORT}`);

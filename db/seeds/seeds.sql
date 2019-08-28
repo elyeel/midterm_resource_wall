@@ -14,6 +14,14 @@ INSERT INTO users (user_name, email, password, avatar_url, date_join) VALUES
 ('Nancy', 'nancy@ymail.com', 'nancy', 'https://cdn.iconscout.com/icon/free/png-256/avatar-369-456321.png', '2019-10-10');
 
 
+--VALUES TO CATEGORIES TABLE--
+
+INSERT INTO categories (name) VALUES
+('Web Development'),
+('Lifestyle'),
+('Photography'),
+('Outdoor');
+
 --VALUES TO RESOURCES TABLE--
 
 INSERT INTO resources (title, description, url, category_id, user_id) VALUES
@@ -24,18 +32,12 @@ INSERT INTO resources (title, description, url, category_id, user_id) VALUES
 ('Fine Cooking', 'Fine Cooking magazine brings out the cook in you.', 'https://www.youtube.com/user/FineCooking/', 2, 2),
 ('Home Decor DIY', 'Collection of a ton of cool home decor hacks, DIY projects and ideas for absolute beginners.', 'https://www.homedit.com/diy-home-decor/', 2, 3),
 ('Underwater Photography', 'The DPG underwater photography guide is designed to provide practical underwater photography tips.','http://www.divephotoguide.com/underwater-photography-techniques/', 3, 2),
-('Snapseed', 'Best for all-purpose photo editing with precise control over color and exposure. Here is the link to quick 10-minute tutorial.', 'https://www.youtube.com/watch?v=nTAaN3-Nf1g', 3, 3),
+('Snapseed', 'Best for all-purpose photo editing with precise control over color and exposure. Here is the link to quick 10-minute tutorial.', 'width="560" height="315" src="https://www.youtube.com/embed/nTAaN3-Nf1g" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>', 3, 3),
 ('Road Trip', 'It’s almost Road Trip time, and you’ve started to think about what exactly you need to pack to keep your show on the road.','https://maketimetoseetheworld.com/road-trip-packing-list/', 4, 1),
 ('Discover new gems in the city', 'Solve a trail of riddles on your phone. Unlock hidden gems, stories and local recommendations.', 'https://www.secretcitytrails.com/', 4, 2);
 
 
---VALUES TO CATEGORIES TABLE--
 
-INSERT INTO categories (name) VALUES
-('Web Development'),
-('Lifestyle'),
-('Photography'),
-('Outdoor');
 
 
 --VALUES TO LIKES TABLE--
