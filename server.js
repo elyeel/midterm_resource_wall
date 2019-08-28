@@ -8,7 +8,7 @@ const express    = require("express");
 const bodyParser = require("body-parser");
 const cookieSession = require('cookie-session');
 const sass       = require("node-sass-middleware");
-const flash      = require('connect-flash');
+// const flash      = require('connect-flash');
 const app        = express();
 const morgan     = require('morgan');
 
@@ -43,15 +43,8 @@ app.use("/styles", sass({
   outputStyle: 'expanded'
 }));
 app.use(express.static("public"));
-app.use(flash());
+// app.use(flash());
 
-<<<<<<< HEAD
-
-//Mount all resource routes
-app.use("/api/users", usersRoutes(db));
-const routes = require('./routes/routes.js');
-app.use('/', routes);
-=======
 // Separated Routes for each Resource
 // Note: Feel free to replace the example routes below with your own
 const routes = require("./routes/routes");
@@ -72,7 +65,6 @@ app.use("/", routes(db));
 // app.get("/", (req, res) => {
 //   res.render("index");
 // });
->>>>>>> 7271f74ce79611fbd54fcaedeb4670f416388bd9
 
 app.listen(PORT, () => {
   console.log(`Example app listening on port ${PORT}`);

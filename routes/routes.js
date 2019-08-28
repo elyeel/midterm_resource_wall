@@ -8,18 +8,6 @@
 
 const express = require('express');
 const router  = express.Router();
-<<<<<<< HEAD
-const moment = require('moment');
-const path = require('path');
-
-module.exports = (db) => {
-
-
-router.get("/", (req, res) => {
-  console.log('Time:', Date.now());
-  res.render("./views/index.ejs");
-})
-=======
 const bcrypt = require('bcrypt');
 const dbParams = require('../lib/db');
 
@@ -100,7 +88,6 @@ module.exports = (db) => {
   })
 
   return router;
->>>>>>> 7271f74ce79611fbd54fcaedeb4670f416388bd9
 };
 
 
