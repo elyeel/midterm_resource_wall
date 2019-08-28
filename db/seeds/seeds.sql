@@ -40,25 +40,25 @@ INSERT INTO categories (name) VALUES
 
 --VALUES TO LIKES TABLE--
 
-INSERT INTO likes (user_id, resource_id, val) VALUES
-(1, 1, 1),
-(1, 4, 0),
-(2, 2, 0),
-(2, 3, 1),
-(3, 4, 1),
-(3, 5, 1),
-(4, 7, 1),
-(4, 3, 0),
-(5, 6, 0),
-(5, 9, 1);
+INSERT INTO likes (user_id, resource_id) VALUES
+(1, 10),
+(2, 9),
+(3, 8),
+(4, 7),
+(5, 6),
+(6, 5),
+(7, 4),
+(8, 3),
+(9, 2),
+(10, 1);
 
 
 --VALUES TO COMMENTS TABLE--
 
 INSERT INTO comments (user_id, resource_id, comment, created_at)
 VALUES
-(1, 5, 'This is a nice source for Photography! Love it!', '2019-04-15' ),
-(2, 8, 'Supercool features, hope I can make it as my DIY project.','2019-01-25'),
+(1, 6, 'This is a nice source for Photography! Love it!', '2019-04-15'),
+(2, 8, 'Supercool features, hope I can make it as my DIY project.', '2019-01-25'),
 (3, 3, 'Ahh, this make sense to me better than my school books', '2019-05-08'),
 (4, 7, 'Too complicated, need something simpler and efficient', '2019-03-30'),
 (5, 8, 'a bit too advanced for me', '2019-06-21'),

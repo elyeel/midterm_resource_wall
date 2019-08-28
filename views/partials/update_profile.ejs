@@ -1,0 +1,23 @@
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Update profile</title>
+    <% include ./partials/head %>
+    <% include ./partials/header %>
+  </head>
+
+  <body>
+    <h2>Edit Profile</h2>
+    <form style="margin-top: 4em" action="/users/<%=user.id%>/update" method="POST">
+      <label for "fileupload">Image URL</label>
+      <input id="fileupload" type="fileupload" name="full_name" placeholder="Enter your Filpath"> <br/>
+      <label for="full_name">User_Name</label>
+      <input id="user_name" type="user_name" name="user_name" placeholder="Enter your User Name"> <br/>
+      <label for="email">Email</label>
+      <input id="email" type="email" name="email" placeholder="Enter an email"> <br/>
+      <input type = "submit" value="Update" class="button" align="center">
+    </form>
+  </body>
+</html>
+
