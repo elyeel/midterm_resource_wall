@@ -13,6 +13,7 @@ const morgan     = require('morgan');
 // PG database client/connection setup
 const { Pool } = require('pg');
 const dbParams = require('./lib/db.js');
+// const database = require('./querydb.js'); // disabled for using db instead
 const db = new Pool(dbParams);
 db.connect();
 

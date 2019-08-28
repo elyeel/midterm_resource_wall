@@ -1,20 +1,19 @@
 
 <% include ./partials/header.ejs %>
 
-<body class="index">
-  <div class="brand">
-    <h1>Welcome to the Resources Wall</h1>
-    <hr class="my-4">
-    <a href="/resources" class="btn btn-lg btn-success"><i class="fas fa-user-graduate"></i> View All Resources</a>
-    <hr class="m4-4">
-  </div>
+<body>
+  <h1>Resource Wall</h1>
+  <% if (resources) { %>
+    <% for (let resource of resources) { %>
+      <iframe width = 600 height=400 src='<%= resource.url %>'></iframe>
+      <button>Edit</button>
+    <% } %>
+    <h3>
 
-  <ul class="slideshow">
-    <li></li>
-    <li></li>
-    <li></li>
-    <li></li>
-    <li></li>
-  </ul>
+
+    </h3>
+  <% } else { %>
+      <h3>no resources</h3>
+    <% } %>
 </body>
-
+</html>

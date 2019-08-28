@@ -9,63 +9,52 @@
 const express = require('express');
 const router  = express.Router();
 const bcrypt = require('bcrypt');
+const dbParams = require('../lib/db');
 
 module.exports = (db) => {
 
-  router.post("/", (req, res) => {
-    //add a new user to the database when the registration form is submitted
-    //create new user object, assigning properties from the request body, password is hashed using bcrypt
-    let newUser = {
-      user_name: req.body.user_name,
-      email: req.body.email,
-      password: bcrypt.hashSync(req.body.password, 10),
-      avatar_URL: req.body.avatar_URL  ? req.body.avatar_URL : "midterm_resource_wall/images/icons8-user-80.png",
-      date_join: new Date()
+  router.get('/', (req, res) => {
+    //verification going here
+    dbParams.getAllResources(db)
+    .then(resources => {
+      res.render('index', {resources})
+    })
+    .catch(err => {
+      console.error(err);
+      res.send(err);
+    });
+  });
+
+  router.get('/register', (req, res) => {
+    res.render('register');
+  });
+
+  router.get('/login', (req, res) => {
+    res.render('login');
+  });
+
+  router.post('/register', (req, res) => {
+    // posting the registration
+  });
+
+  router.post('/login', (req, res) => {
+    // posting login
+    if (req.body.user_id) {
+
     }
-    //insert new user object in to users table
-    db.query('users')
-      .insert(newUser)
-      .returning(['id', 'user_name', 'avatar_URL'])
-      .then( (results) => {
-        console.log(newUser);
-        req.session.user = results[0];
-        res.status(200).send(results[0]);
-      })
-      .catch((err) => {
-        if(/already exists/.test(err.detail)) {
-          console.error(err);
-          res.status(500).send("User already exists.");
-        } else {
-          console.error(err);
-          res.status(500).send("Something wrong happened, please try again.");
-        }
-      })
   });
 
+  router.get('/search', (req, res) => {
+    res.render('search');
+  })
 
-  router.get("/", (req, res) => {
-    // db.query(`SELECT * FROM users;`)
-    //   .then(data => {
-    //     const users = data.rows;
-    //     res.json({ users });
-    //   })
-    //   .catch(err => {
-    //     res
-    //       .status(500)
-    //       .json({ error: err.message });
-    //   });
-    res.render("index");
-  });
+  router.post('/search', (req, res) => {
 
-  console.log("registering login routes");
-  router.get("/login", (req, res) => {
+  })
 
-    // db.query(`SELECT * FROM users;`)
-    // .then((results) => {
-    //   res.json(results);
-    // });
-    res.render("views/login");
-  });
+  router.get('/:user_id', (req, res) => {
+
+  })
 
   return router;
 };
