@@ -1,0 +1,22 @@
+<% include ./partials/header.ejs %>
+
+<body>
+  <h1>Resource Wall</h1>
+  <% if (resources) { %>
+    <iframe width = 600 height=400 src='<%= resources.url %>'></iframe>
+
+    <h3>
+        <a href="<%= resources.url %>"> Visit the site </a>
+    </h3>
+    <h2>
+      <%= resources.comment %> <br>
+
+      <%= resources.rating %><br>
+      <%= resources.val %><br>
+    </h2>
+
+  <% } else { %>
+      <h3>no resources</h3>
+    <% } %>
+</body>
+</html>
