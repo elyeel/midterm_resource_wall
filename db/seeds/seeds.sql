@@ -42,17 +42,17 @@ INSERT INTO resources (title, description, url, category_id, user_id) VALUES
 
 --VALUES TO LIKES TABLE--
 
-INSERT INTO likes (user_id, resource_id) VALUES
-(1, 10),
-(2, 9),
-(3, 8),
-(4, 7),
-(5, 6),
-(6, 5),
-(7, 4),
-(8, 3),
-(9, 2),
-(10, 1);
+INSERT INTO likes (user_id, resource_id, val) VALUES
+(1, 10, 1),
+(2, 9, 2),
+(3, 8, 3),
+(4, 7, 4),
+(5, 6, 5),
+(6, 5, 6),
+(7, 4, 5),
+(8, 3, 4),
+(9, 2, 3),
+(10, 1, 2);
 
 
 --VALUES TO COMMENTS TABLE--
