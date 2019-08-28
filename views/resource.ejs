@@ -3,17 +3,88 @@
 <body>
   <h1>Resource Wall</h1>
   <% if (resources) { %>
-    <iframe width = 600 height=400 src='<%= resources.url %>'></iframe>
+    <iframe disabled width = 600 height=400 src='<%= resources.url %>'></iframe>
 
     <h3>
-        <a href="<%= resources.url %>"> Visit the site </a>
+        <a href="<%= resources.url %>" target="_blank"> Visit the site </a>
     </h3>
-    <h2>
-      <%= resources.comment %> <br>
 
-      <%= resources.rating %><br>
-      <%= resources.val %><br>
-    </h2>
+      <form action="/" method="POST">
+        <h3>Comment</h3>
+        <textarea name="text" placeholder="<%= resources.comment %>" disabled></textarea>
+        <button type="submit" value="Edit Comment">Edit Comment</button>
+      </form>
+      <form>
+        <h3>Ratings</h3>
+        <style>
+            .checked {
+              color: orange;
+            }
+        </style>
+        <% switch (resources.rating) {
+           case 1: %>
+            <span class="fa fa-star checked"></span>
+            <span class="fa fa-star"></span>
+            <span class="fa fa-star"></span>
+            <span class="fa fa-star"></span>
+            <span class="fa fa-star"></span>
+            <% break; %>
+           <% case 2: %>
+            <span class="fa fa-star checked"></span>
+            <span class="fa fa-star checked"></span>
+            <span class="fa fa-star"></span>
+            <span class="fa fa-star"></span>
+            <span class="fa fa-star"></span>
+            <% break; %>
+           <% case 3: %>
+            <span class="fa fa-star checked"></span>
+            <span class="fa fa-star checked"></span>
+            <span class="fa fa-star checked"></span>
+            <span class="fa fa-star"></span>
+            <span class="fa fa-star"></span>
+            <% break; %>
+           <% case 4: %>
+            <span class="fa fa-star checked"></span>
+            <span class="fa fa-star checked"></span>
+            <span class="fa fa-star checked"></span>
+            <span class="fa fa-star checked"></span>
+            <span class="fa fa-star"></span>
+            <% break; %>
+           <% case 5: %>
+            <span class="fa fa-star checked"></span>
+            <span class="fa fa-star checked"></span>
+            <span class="fa fa-star checked"></span>
+            <span class="fa fa-star checked"></span>
+            <span class="fa fa-star checked"></span>
+            <% break; %>
+           default: %>
+            <% console.log('ouch'); %>
+      <% }; %>
+          <button type="submit">Rate this!</button>
+      </form>
+      <form action="/" method="POST">
+      <h3>Likes</h3>
+      <style>
+        .fa {
+          font-size: 50px;
+          cursor: pointer;
+          user-select: none;
+        }
+
+        .fa:hover {
+          color: darkblue;
+        }
+        </style>
+      <% if (resources.val === 1) { %>
+        <i class="fa fa-thumbs-up"></i>
+        <button type="submit">Unlike this!</button>
+      <% } else { %>
+        <i class="fa fa-thumbs-down"></i>
+        <button type="submit">Like this!</button>
+      <% } %>
+      </form>
+
+
 
   <% } else { %>
       <h3>no resources</h3>

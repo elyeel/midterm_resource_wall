@@ -39,6 +39,7 @@ module.exports = (db) => {
 
   // get to details for each resource
   router.get('/:id', (req, res) => {
+    console.log('params -', req.params.id);
     if (req.params.id) {
       dbParams.getResourceById(db, req.params.id)
       .then(resources => {
