@@ -1,0 +1,15 @@
+
+  <body>
+    <h1>My Resource Wall</h1>
+  <% if (users) { %>
+    <% for (let user of users) { %>
+      <h3><%= user.email %></h3>
+      <h3><%= user.url %></h3>
+      <button>Edit</button>
+    <% } %>
+
+  <% } else { %>
+      <h3>no resources</h3>
+    <% } %>
+  </body>
+

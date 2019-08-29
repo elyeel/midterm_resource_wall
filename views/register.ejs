@@ -4,9 +4,9 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
 <title>REGISTRATION</title>
 </head>
+
 <body>
   <% include ./partials/header.ejs %>
   <main style='margin: 2em;'>
@@ -16,7 +16,7 @@
       <div class="form-group row">
         <label name="email" class="col-sm-2 col-form-label"><b>Username</b></label>
         <div class="col-sm-4">
-          <input type="email" class="form-control" name="email" placeholder="Enter Username">
+          <input type="text" class="form-control" name="user_name" placeholder="Enter Username">
         </div>
       </div>
 
@@ -37,13 +37,13 @@
       <div class="form-group row">
         <label name="email" class="col-sm-2 col-form-label"><b>Avatar_URL</b></label>
         <div class="col-sm-4">
-          <input type="email" class="form-control" name="email" placeholder="Enter Avatar_URL">
+          <input type="avatar" class="form-control" name="avatar_url" placeholder="Enter Avatar_URL">
         </div>
       </div>
 
       <div class="form-group row">
         <div class="col-sm-4">
-          <button type="submit" class="btn btn-primary btn-lg">Submit</button>
+          <button type="submit" class="btn btn-success btn-lg">Submit</button>
         </div>
       </div>
     </form>

@@ -4,7 +4,8 @@
 <body>
   <% if (resources) { %>
     <% for (let resource of resources) { %>
-      <iframe width=600 height=400 src='<%= resource.url %>'></iframe>
+
+      <!-- <iframe width=500 height=500 src='<%= resource.url %>'></iframe> -->
       <form action="/<%= resource.id %>" method="GET">
         <input type="text" disabled value='<%= resource.id %>'>
         <input type="submit" value="Detail">
@@ -19,3 +20,4 @@
     <% } %>
 </body>
 </html>
+
