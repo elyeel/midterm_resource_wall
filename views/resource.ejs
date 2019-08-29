@@ -8,10 +8,11 @@
         <a href="<%= resources.url %>" target="_blank"> Visit the site </a>
     </h3>
 
-      <form class="comment_form" action="/" method="POST">
+      <form id="comment_form" method="POST" action="/comment/edit">
         <h3>Comment</h3>
-        <textarea name="text" placeholder="<%= resources.comment %>" disabled></textarea>
-        <button class="comment_button" type="submit" value="Edit Comment">Edit Comment</button>
+        <textarea class="comment_text" name="text" placeholder="<%= resources.comment %>" disabled></textarea>
+
+        <button type="submit" class="comment_button" value="Submit">Edit Comment</button>
       </form>
       <form>
         <h3>Ratings</h3>
@@ -82,14 +83,14 @@
         <button type="submit">Like this!</button>
       <% } %>
       </form>
-
+      <form>
+        <textarea class="id_data"><%= resources.id %></textarea>
+      </form>
 
 
   <% } else { %>
       <h3>no resources</h3>
     <% } %>
-    <form>
-      <textarea class="id_data"><%= resources.id %></textarea>
-    </form>
+
 </body>
 </html>

@@ -112,6 +112,33 @@ module.exports = (db) => {
 
   })
 
+  router.post('/comment/add', (req, res) => {
+
+    // log body
+    // call db.adduse[db, comment]
+    console.log(req.body);
+
+  })
+
+  router.post('/comment/edit', (req, res) => {
+
+    // log body
+    // call db.adduse[db, comment]
+    console.log("comment/edt", req.body);
+    const commentId = Object.keys(req.body)[0];
+    const comment = req.body[commentId];
+    console.log('Result = ', commentId, ' - ', comment);
+    dbParams.editComment(db, commentId, comment)
+    .then(() => {
+      console.log("Ready to refresh");
+      res.redirect(`/${commentId}`);
+    })
+    .catch(err => {
+      console.error(err);
+      res.send(err);
+    });
+  })
+
   return router;
 };
 
