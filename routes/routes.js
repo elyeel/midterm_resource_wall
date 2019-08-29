@@ -8,8 +8,7 @@
 
 const express = require('express');
 const router  = express.Router();
-const bcrypt = require('bcrypt');
-const dbParams = require('../lib/db');
+const dbParams = require('../lib/db.js');
 
 module.exports = (db) => {
 
@@ -28,6 +27,13 @@ module.exports = (db) => {
   router.get('/search', (req, res) => {
     res.render('search');
   })
+  router.get('/addresource', (req, res) => {
+    res.render('addresource');
+  });
+
+  router.get('/myresources', (req, res) => {
+    res.render('myresources');
+  });
 
   router.get('/register', (req, res) => {
     res.render('register');
@@ -37,11 +43,24 @@ module.exports = (db) => {
     res.render('login');
   });
 
+  router.get('/logout', (req, res) => {
+    res.redirect('/');
+  })
+
+
   router.post('/register', (req, res) => {
-    // posting the registration
+    dbParams.addNewUser(db, req.body)
+    .then(() => {
+      res.redirect('/');
+    })
+    .catch(err => {
+      console.error(err);
+      res.send(err);
+    });
   });
 
-  // get to details for each resource
+
+  // get details for each resource
   router.get('/:id', (req, res) => {
     console.log('params -', req.params.id);
     if (req.params.id) {
@@ -52,28 +71,28 @@ module.exports = (db) => {
       .catch(err => {
         console.error(err);
         res.send(err);
-      })
+      });
     }
   });
 
   //this route should be updated
   router.post('/login', (req, res) => {
     // posting login
-    if (req.body.user_id) {
-      dbParams.getMyResources(db, req.body.user_id)
-      .then(resources => {
-        res.render('index', { resources })
+    if (req.body.email) {
+      dbParams.getUsers(db, req.body.email)
+      .then(users => {
+        res.render('myresources', { users })
       })
       .catch(err => {
         console.error(err);
         res.send(err);
-      })
+      });
     }
   });
 
   router.get('/search', (req, res) => {
     res.render('search');
-  })
+  });
 
   // search for resources from given strings, should accept this
   router.post('/search', (req, res) => {
@@ -85,10 +104,9 @@ module.exports = (db) => {
       .catch(err => {
         console.error(err);
         res.send(err);
-      })
+      });
     }
-
-  })
+  });
 
   router.get('/:user_id', (req, res) => {
 

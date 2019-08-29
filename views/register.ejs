@@ -1,41 +1,53 @@
 
-<% include ./partials/header.ejs %>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<title>REGISTRATION</title>
+</head>
 
-<!-- Modal register -->
 <body>
-<div class="modal fade" id="register-modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Register</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
+  <% include ./partials/header.ejs %>
+  <main style='margin: 2em;'>
+    <h2>Register</h2>
+    <p>Please fill in this form to create an account.</p>
+    <form method="POST" action="/register">
+      <div class="form-group row">
+        <label name="email" class="col-sm-2 col-form-label"><b>Username</b></label>
+        <div class="col-sm-4">
+          <input type="text" class="form-control" name="user_name" placeholder="Enter Username">
+        </div>
       </div>
-      <div class="modal-body">
-        <form action="/register" method="post">
-          <div class="form-group">
-            <label for "fileupload">Image URL</label>
-            <input id="fileupload" type="fileupload" name="full_name" class="form-control" placeholder="Enter your Filpath">
-          </div>
-          <div class="form-group">
-            <label for="full_name">Full Name</label>
-            <input id="full_name" class="form-control" type="full_name" name="name" placeholder="Enter your Full Name" required>
-          </div>
-          <div class="form-group">
-            <label for="email">Email</label>
-            <input id="email" class="form-control" type="email" name="email" placeholder="Enter an email" required>
-          </div>
-          <div class="form-group">
-            <label for="password">Password</label>
-            <input id="password" class="form-control" type="password" name="password" placeholder="Enter a password" required>
-          </div>
-          <button type="submit" class="btn btn-primary" align="center">Register</button>
-          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        </form>
-      </div>
-    </div>
-  </div>
-</div>
 
+      <div class="form-group row">
+        <label name="email" class="col-sm-2 col-form-label"><b>Email</b></label>
+        <div class="col-sm-4">
+          <input type="email" class="form-control" name="email" placeholder="Enter Email">
+        </div>
+      </div>
+
+      <div class="form-group row">
+        <label name="password" class="col-sm-2 col-form-label"><b>Password</b></label>
+        <div class="col-sm-4">
+          <input type="password" class="form-control" name="password" placeholder="Enter Password">
+        </div>
+      </div>
+
+      <div class="form-group row">
+        <label name="email" class="col-sm-2 col-form-label"><b>Avatar_URL</b></label>
+        <div class="col-sm-4">
+          <input type="avatar" class="form-control" name="avatar_url" placeholder="Enter Avatar_URL">
+        </div>
+      </div>
+
+      <div class="form-group row">
+        <div class="col-sm-4">
+          <button type="submit" class="btn btn-success btn-lg">Submit</button>
+        </div>
+      </div>
+    </form>
+  </main>
 </body>
+</html>
+

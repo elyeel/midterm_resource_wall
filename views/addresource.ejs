@@ -1,0 +1,52 @@
+
+<% include ./partials/head.ejs %>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<title>NEW RESOURCE</title>
+</head>
+<body>
+  <main style='margin:6em;'>
+    <h2 style="color:#0074d9; font-weight:bold;" align="center">ADD NEW RESOURCE</h2>
+    <form method="POST" action="/addresource"><br><br>
+
+      <div class="form-group row">
+        <label for="url" class="col-sm-2 col-form-label"><b>Enter Resource URL:</b></label>
+        <div class="col-sm-8">
+            <input type="text" name="url" class="form-control" value="https://" required>
+        </div>
+      </div>
+
+      <br>
+
+      <div class="form-group row">
+        <label name="title" class="col-sm-2 col-form-label"><b>Enter Title:</b></label>
+        <div class="col-sm-8">
+          <input type="text" class="form-control" name="title" placeholder="Enter Title">
+        </div>
+      </div>
+
+      <br>
+
+      <div class="form-group row">
+          <label for="description" class="col-sm-2 col-form-label"><b>Enter Description:</b></label>
+          <div class="col-sm-8">
+            <textarea class="form-control" name="description" rows="3" required></textarea>
+          </div>
+      </div>
+
+      <br>
+
+      <div class="form-group row" style="text-align:right">
+        <div class="col-sm-10">
+          <button type="submit" class="btn btn-primary btn-lg">Submit</button>
+        </div>
+      </div>
+    </form>
+  </main>
+</body>
+</html>
+
