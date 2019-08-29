@@ -56,6 +56,7 @@ module.exports = (db) => {
     }
   });
 
+  //this route should be updated
   router.post('/login', (req, res) => {
     // posting login
     if (req.body.user_id) {
@@ -74,7 +75,7 @@ module.exports = (db) => {
     res.render('search');
   })
 
-  // search for resources from given strings
+  // search for resources from given strings, should accept this
   router.post('/search', (req, res) => {
     if (req.body.category_str || req.body.title_str) {
       dbParams.searchRes(db, req.body.category_str, req.body.title_str)
