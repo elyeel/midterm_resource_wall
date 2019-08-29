@@ -35,13 +35,25 @@ module.exports = (db) => {
     res.render('myresources');
   });
 
+  router.get('/updateprofile', (req, res) => {
+    res.render('updateprofile')
+    .then(() => {
+      res.redirect('/myresources');
+    })
+  });
+
   router.get('/register', (req, res) => {
     res.render('register');
   });
 
+
   router.get('/login', (req, res) => {
-    res.render('login');
+    res.render('login')
+    .then(() => {
+      res.redirect('/myresources');
+    })
   });
+
 
   router.get('/logout', (req, res) => {
     res.redirect('/');
@@ -51,7 +63,7 @@ module.exports = (db) => {
   router.post('/register', (req, res) => {
     dbParams.addNewUser(db, req.body)
     .then(() => {
-      res.redirect('/');
+      res.redirect('/myresources');
     })
     .catch(err => {
       console.error(err);
@@ -114,14 +126,4 @@ module.exports = (db) => {
 
   return router;
 };
-
-
-// router.get("/login", (req, res) => {
-//   db.query(`SELECT * FROM users;`)
-//   .then((results) => {
-//     res.json(results);
-//   });
-// });
-// return router;
-// };
 

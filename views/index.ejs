@@ -2,22 +2,20 @@
 <% include ./partials/header.ejs %>
 
 <body>
-  <% if (resources) { %>
-    <% for (let resource of resources) { %>
-
-      <!-- <iframe width=500 height=500 src='<%= resource.url %>'></iframe> -->
-      <form action="/<%= resource.id %>" method="GET">
-        <input type="text" disabled value='<%= resource.id %>'>
-        <input type="submit" value="Detail">
-      </form>
-    <% } %>
-    <h3>
-
-
-    </h3>
-  <% } else { %>
-      <h3>no resources</h3>
-    <% } %>
+  <main class="container">
+    <div class="col-md-10 resource-field"><br>
+      <% if (resources) { %>
+        <% for (let resource of resources) { %>
+          <iframe width=300 height=300 src='<%= resource.url %>'></iframe>
+          <h2><%= resource.title %></h2>
+          <p><%= resource.description %></p>
+          <h5><a href="<%= resource.url %>" target="_blank"> Visit the site </a></h5><br>
+          <% } %>
+          <% } else { %>
+          <h3>NO RESOURCES</h3>
+        <% } %>
+    </div>
+  </main>
 </body>
 </html>
 

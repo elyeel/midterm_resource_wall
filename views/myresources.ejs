@@ -1,15 +1,28 @@
 
-  <body>
-    <h1>My Resource Wall</h1>
-  <% if (users) { %>
-    <% for (let user of users) { %>
-      <h3><%= user.email %></h3>
-      <h3><%= user.url %></h3>
-      <button>Edit</button>
-    <% } %>
+<% include ./partials/head.ejs %>
 
-  <% } else { %>
-      <h3>no resources</h3>
-    <% } %>
-  </body>
+  <header>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-success">
+      <a class="navbar-brand" href="/myresources"><i class="fas fa-book-open fa-3x"></i></a>
+      <span class="nav-text"><h2 style="color:rgb(1, 24, 24); font-weight:bold;">MY WALL</h2></span>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+        <div class="ml-auto p-2 bd-highlight">
+          <span class="form-inline">
+            <span class="nav-item nav-link text-dark">Logged In As:</span>
+            <div class="navbar-nav navbar-right nav-item nav-link">
+              <form class="form-inline" action="/search">
+                <input class="form-control mr-sm-2" type="text" placeholder="Search">
+              </form>
+              <a href="/updateprofile"><button type="button" class="mr-sm-2 btn btn-warning active">ACCOUNT SETTINGS</button></a><br>
+              <a href="/addresource"><button type="button" class="mr-sm-2 btn btn-primary active">ADD RESOURCE</button></a><br>
+              <a href="/logout"><button type="button" class="mr-sm-2 btn btn-danger active">LOGOUT</button></a>
+            </div>
+          </span>
+        </div>
+      </div>
+    </nav>
+  </header>
 
