@@ -25,6 +25,10 @@ module.exports = (db) => {
     });
   });
 
+  router.get('/search', (req, res) => {
+    res.render('search');
+  })
+
   router.get('/register', (req, res) => {
     res.render('register');
   });
@@ -70,9 +74,10 @@ module.exports = (db) => {
     res.render('search');
   })
 
+  // search for resources from given strings
   router.post('/search', (req, res) => {
     if (req.body.category_str || req.body.title_str) {
-      dbParams.getMyResources(db, req.body.category_str, req.body.title_str)
+      dbParams.searchRes(db, req.body.category_str, req.body.title_str)
       .then(resources => {
         res.render('index', { resources })
       })
