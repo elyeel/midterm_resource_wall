@@ -27,9 +27,11 @@ module.exports = (db) => {
   router.get('/search', (req, res) => {
     res.render('search');
   })
+
   router.get('/addresource', (req, res) => {
     res.render('addresource');
   });
+
 
   router.get('/myresources', (req, res) => {
     res.render('myresources');

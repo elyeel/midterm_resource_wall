@@ -1,10 +1,26 @@
-<% include ./partials/header.ejs %>
-<body>
-  <form method="POST" action='/search'>
-    By Category: <input type='text' name='category_str'><br>
-    By Title: <input type='text' name='title_str'><br>
-    <input type="submit" value='Search'>
 
-  </form>
+<% include ./partials/header.ejs %>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<title>SEARCH</title>
+</head>
+<body>
+  <main style='margin:6em;'>
+    <h2 style="color:#0074d9; font-weight:bold;" align="center">SEARCH</h2>
+    <form method="POST" action="/search"><br><br>
+      <div class="form-group row">
+        <label for="url" class="col-sm-2 col-form-label"><b>BY CATEGORY:</b></label>
+        <div class="col-sm-8">
+          <input type="text" name="category_str" class="form-control" required>
+        </div>
+      </div>
+    </form>
+  </main>
 </body>
 </html>
+
+
