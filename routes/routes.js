@@ -16,7 +16,7 @@ module.exports = (db) => {
     //verification going here
     dbParams.getAllResources(db)
     .then(resources => {
-      res.render('index', {resources})
+      res.render('index', { resources })
     })
     .catch(err => {
       console.error(err);
