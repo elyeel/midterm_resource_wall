@@ -59,6 +59,17 @@ module.exports = (db) => {
     });
   });
 
+  // posting add resource and update to database
+  router.post('/addresource', (req, res) => {
+    dbParams.addNewResource(db, req.body)
+    .then(() => {
+      res.redirect('/');
+    })
+    .catch(err => {
+      console.error(err);
+      res.send(err);
+    });
+  })
 
   // get details for each resource
   router.get('/:id', (req, res) => {
