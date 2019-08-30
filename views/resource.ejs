@@ -1,97 +1,129 @@
+
 <% include ./partials/header.ejs %>
 
 <body>
-  <% if (resources) { %>
-    <iframe disabled width = 600 height=400 src='<%= resources.url %>'></iframe>
+  <main class="container" style="margin:5em;">
+    <div class="col-md-12 resource-field"><br>
+      <% if (resources) { %>
+        <iframe disabled width=500 height=300 src='<%= resources.url %>'></iframe>
+        <h2><%= resources.title %></h2>
+        <p><%= resources.description %></p>
+        <a href="<%= resources.url %>" target="_blank">
+          <h3><i class="fas fa-external-link-alt"></i></h3>
+        </a>
 
-    <h3>
-        <a href="<%= resources.url %>" target="_blank"> Visit the site </a>
-    </h3>
+        <hr>
 
-      <form id="comment_form" method="POST" action="/comment/edit">
-        <h3>Comment</h3>
-        <textarea class="comment_text" name="text" placeholder="<%= resources.comment %>" disabled></textarea>
+        <div class="container" style='margin:3em;'>
+          <form id="comment_form" method="POST" action="/comment/edit">
+            <div class="form-group row" style="text-align:right">
+              <label for="comments" class="col-sm-2 col-form-label"><h3>Comments:</h3></label>
+              <div class="col-sm-3">
+              <textarea class="comment_text" name="text" rows="3" placeholder="<%= resources.comment %>" disabled></textarea>
+              </div>
+              <button type="submit" class="btn btn-primary active" value="Submit">Edit Comment</button>
+            </div>
+          </form>
+        </div>
 
-        <button type="submit" class="comment_button" value="Submit">Edit Comment</button>
-      </form>
-      <form>
-        <h3>Ratings</h3>
-        <style>
+        <div class="container" style='margin:3em;'>
+          <span class="form-group row">
+            <label for="ratings" class="col-sm-2 col-form-label"><h2>Ratings:</h2></label>
+            <style>
             .checked {
-              color: orange;
+              color: rgb(218, 197, 8);
             }
-        </style>
-        <% switch (resources.rating) {
-           case 1: %>
-            <span id="star1" class="fa fa-star checked"></span>
-            <span id="star2" class="fa fa-star"></span>
-            <span id="star3" class="fa fa-star"></span>
-            <span id="star4" class="fa fa-star"></span>
-            <span id="star5" class="fa fa-star"></span>
-            <% break; %>
-           <% case 2: %>
-            <span id="star1" class="fa fa-star checked"></span>
-            <span id="star2" class="fa fa-star checked"></span>
-            <span id="star3" class="fa fa-star"></span>
-            <span id="star4" class="fa fa-star"></span>
-            <span id="star5" class="fa fa-star"></span>
-            <% break; %>
-           <% case 3: %>
-            <span id="star1" class="fa fa-star checked"></span>
-            <span id="star2" class="fa fa-star checked"></span>
-            <span id="star3" class="fa fa-star checked"></span>
-            <span id="star4" class="fa fa-star"></span>
-            <span id="star5" class="fa fa-star"></span>
-            <% break; %>
-           <% case 4: %>
-            <span id="star1" class="fa fa-star checked"></span>
-            <span id="star2" class="fa fa-star checked"></span>
-            <span id="star3" class="fa fa-star checked"></span>
-            <span id="star4" class="fa fa-star checked"></span>
-            <span id="star5" class="fa fa-star"></span>
-            <% break; %>
-           <% case 5: %>
-            <span id="star1" class="fa fa-star checked"></span>
-            <span id="star2" class="fa fa-star checked"></span>
-            <span id="star3" class="fa fa-star checked"></span>
-            <span id="star4" class="fa fa-star checked"></span>
-            <span id="star5" class="fa fa-star checked"></span>
-            <% break; %>
-           default: %>
-            <% console.log('ouch'); %>
-      <% }; %>
-          <button type="submit">Rate this!</button>
-      </form>
-      <form action="/" method="POST">
-      <h3>Likes</h3>
-      <style>
-        .fa {
-          font-size: 50px;
-          cursor: pointer;
-          user-select: none;
-        }
+            </style>
+            <% switch (resources.rating) {
+              case 1: %>
+              <span id="star1" class="fa fa-star checked"></span>
+              <span id="star2" class="fa fa-star"></span>
+              <span id="star3" class="fa fa-star"></span>
+              <span id="star4" class="fa fa-star"></span>
+              <span id="star5" class="fa fa-star"></span>
+              <% break; %>
 
-        .fa:hover {
-          color: darkblue;
-        }
-        </style>
-      <% if (resources.val === 1) { %>
-        <i class="fa fa-thumbs-up"></i>
-        <button type="submit">Unlike this!</button>
-      <% } else { %>
-        <i class="fa fa-thumbs-down"></i>
-        <button type="submit">Like this!</button>
+              <% case 2: %>
+              <span id="star1" class="fa fa-star checked"></span>
+              <span id="star2" class="fa fa-star checked"></span>
+              <span id="star3" class="fa fa-star"></span>
+              <span id="star4" class="fa fa-star"></span>
+              <span id="star5" class="fa fa-star"></span>
+              <% break; %>
+
+              <% case 3: %>
+              <span id="star1" class="fa fa-star checked"></span>
+              <span id="star2" class="fa fa-star checked"></span>
+              <span id="star3" class="fa fa-star checked"></span>
+              <span id="star4" class="fa fa-star"></span>
+              <span id="star5" class="fa fa-star"></span>
+              <% break; %>
+
+              <% case 4: %>
+              <span id="star1" class="fa fa-star checked"></span>
+              <span id="star2" class="fa fa-star checked"></span>
+              <span id="star3" class="fa fa-star checked"></span>
+              <span id="star4" class="fa fa-star checked"></span>
+              <span id="star5" class="fa fa-star"></span>
+              <% break; %>
+
+              <% case 5: %>
+              <span id="star1" class="fa fa-star checked"></span>
+              <span id="star2" class="fa fa-star checked"></span>
+              <span id="star3" class="fa fa-star checked"></span>
+              <span id="star4" class="fa fa-star checked"></span>
+              <span id="star5" class="fa fa-star checked"></span>
+              <% break; %>
+
+              default: %>
+              <% console.log('OUCH!!!'); %>
+              <% }; %>
+
+              <div style="padding: 10px"></div>
+              <button type="submit" class="btn btn-warning active btn-lg">Rate this</button>
+            </span>
+          </div>
+          <style>
+
+          .fa {
+            font-size: 40px;
+            cursor: pointer;
+            user-select: none;
+            }
+
+            .fa:hover {
+              color: rgb(5, 119, 24);
+            }
+          </style>
+
+          <div class="container" style='margin:3em;'>
+            <form action="/" method="POST">
+              <span class="form-group row">
+                <label for="likes" class="col-sm-2 col-form-label"><h2>Likes:</h2></label>
+                <% if (resources.val === 1) { %>
+                  <i class="fa fa-thumbs-up"></i>
+                  <div style="padding: 10px"></div>
+                  <button type="submit" class="btn btn-success active btn-lg">Like this</button>
+                  <% } else { %>
+                  <i class="fa fa-thumbs-down"></i>
+                  <div style="padding: 10px"></div>
+                  <button type="submit" class="btn btn-dark active btn-lg">Unlike this</button>
+                <% } %>
+              </span>
+            </form>
+          </div>
+
+        <% } else { %>
+        <h3>NO RESOURCES</h3>
       <% } %>
-      </form>
-      <form>
-        <textarea class="id_data"><%= resources.id %></textarea>
-      </form>
-
-
-  <% } else { %>
-      <h3>no resources</h3>
-    <% } %>
-
+    </div>
+  </main>
 </body>
 </html>
+
+
+      <!-- <form>
+        <textarea class="id_data"><%= resources.id %></textarea>
+      </form> -->
+
 

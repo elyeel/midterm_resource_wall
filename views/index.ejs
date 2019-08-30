@@ -1,17 +1,29 @@
 
 <% include ./partials/header.ejs %>
 
-<body background-image>
-  <main class="container">
-    <div class="col-md-10 resource-field"><br>
+<body style="background-color:powderblue;">
+  <main class="container" style="margin:4em;">
+    <div class="col-md-10 resource-field">
       <% if (resources) { %>
         <% for (let resource of resources) { %>
-          <!-- <iframe width=150 height=150 src='<%= resource.url %>'></iframe> -->
+          <iframe width=900 height=300 src='<%= resource.url %>'></iframe>
+          <div style="padding: 10px"></div>
           <h2><%= resource.title %></h2>
-          <p><%= resource.description %></p>
+          <p style="font-size:20px"><b><%= resource.description %></b></p>
           <a href="<%= resource.url %>" target="_blank">
             <h3><i class="fas fa-external-link-alt"></i></h3>
           </a>
+          <br>
+          <h4>
+          <i class="far fa-thumbs-up"></i>
+          <i class="fas fa-star"></i>
+          <i class="fas fa-star"></i>
+          <i class="fas fa-star"></i>
+          <i class="fas fa-star"></i>
+          <i class="fas fa-star"></i>
+          <i class="far fa-comments"></i>
+          </h4>
+          <br>
           <hr>
           <% } %>
           <% } else { %>
