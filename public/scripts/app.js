@@ -8,8 +8,38 @@ $(document).ready(function(){
   // }
   //post comment
   const $comment_button = $('.comment_button');
-  console.log($comment_button);
   const $comment_text = $('.comment_text');
+
+  const postRating = function(rate,resource) {
+    const data = {};
+    data[resource] = rate;
+    $.ajax({
+      method: "POST",
+      url: "/stars",
+      data: data
+    })
+    .done(function() {
+      console.log("Done posting ratings");
+      window.location.reload();
+    })
+  }
+
+  $('#star1').click(function(event) {
+    postRating(1, resourceId);
+  });
+  $('#star2').click(function(event) {
+    postRating(2, resourceId);
+  });
+  $('#star3').click(function(event) {
+    postRating(3, resourceId);
+  });
+  $('#star4').click(function(event) {
+    postRating(4, resourceId);
+  });
+  $('#star5').click(function(event) {
+    postRating(5, resourceId);
+  });
+
 
   $('#comment_form').submit(function(event){
     event.preventDefault();
@@ -41,6 +71,7 @@ $(document).ready(function(){
           // loadTweets(); // reloading the tweets back with latest update under success callback
         }
       }).done(function(data, textStatus) {
+        // window.location.reload();
         // alert( "Data Saved: " + JSON.stringify(data) );
         // // rerender the tweets
         // console.log('done:', textStatus);
