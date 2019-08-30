@@ -73,10 +73,20 @@ module.exports = (db) => {
     });
   });
 
+  // posting add resource and update to database
+  router.post('/addresource', (req, res) => {
+    dbParams.addNewResource(db, req.body)
+    .then(() => {
+      res.redirect('/');
+    })
+    .catch(err => {
+      console.error(err);
+      res.send(err);
+    });
+  })
 
   // get details for each resource
   router.get('/:id', (req, res) => {
-    console.log('params -', req.params.id);
     if (req.params.id) {
       dbParams.getResourceById(db, req.params.id)
       .then(resources => {
@@ -124,6 +134,44 @@ module.exports = (db) => {
 
   router.get('/:user_id', (req, res) => {
 
+  })
+
+  router.post('/comment/add', (req, res) => {
+
+    // log body
+    // call db.adduse[db, comment]
+
+  })
+
+  router.post('/comment/edit', (req, res) => {
+
+    // log body
+    // call db.adduse[db, comment]
+    const commentId = Object.keys(req.body)[0];
+    const comment = req.body[commentId];
+    dbParams.editComment(db, commentId, comment)
+    .then(() => {
+      console.log("Ready to refresh");
+      res.redirect(`/${commentId}`);
+    })
+    .catch(err => {
+      console.error(err);
+      res.send(err);
+    });
+  })
+
+  router.post('/stars', (req, res) => {
+    const resourceId = Object.keys(req.body)[0];
+    const rating = req.body[resourceId];
+    dbParams.rateResource(db, resourceId, rating)
+    .then(() => {
+      console.log("Ready to refresh");
+      res.redirect(`/${resourceId}`);
+    })
+    .catch(err => {
+      console.error(err);
+      res.send(err);
+    });
   })
 
   return router;

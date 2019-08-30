@@ -8,10 +8,11 @@
         <a href="<%= resources.url %>" target="_blank"> Visit the site </a>
     </h3>
 
-      <form class="comment_form" action="/" method="POST">
+      <form id="comment_form" method="POST" action="/comment/edit">
         <h3>Comment</h3>
-        <textarea name="text" placeholder="<%= resources.comment %>" disabled></textarea>
-        <button class="comment_button" type="submit" value="Edit Comment">Edit Comment</button>
+        <textarea class="comment_text" name="text" placeholder="<%= resources.comment %>" disabled></textarea>
+
+        <button type="submit" class="comment_button" value="Submit">Edit Comment</button>
       </form>
       <form>
         <h3>Ratings</h3>
@@ -22,39 +23,39 @@
         </style>
         <% switch (resources.rating) {
            case 1: %>
-            <span class="fa fa-star checked"></span>
-            <span class="fa fa-star"></span>
-            <span class="fa fa-star"></span>
-            <span class="fa fa-star"></span>
-            <span class="fa fa-star"></span>
+            <span id="star1" class="fa fa-star checked"></span>
+            <span id="star2" class="fa fa-star"></span>
+            <span id="star3" class="fa fa-star"></span>
+            <span id="star4" class="fa fa-star"></span>
+            <span id="star5" class="fa fa-star"></span>
             <% break; %>
            <% case 2: %>
-            <span class="fa fa-star checked"></span>
-            <span class="fa fa-star checked"></span>
-            <span class="fa fa-star"></span>
-            <span class="fa fa-star"></span>
-            <span class="fa fa-star"></span>
+            <span id="star1" class="fa fa-star checked"></span>
+            <span id="star2" class="fa fa-star checked"></span>
+            <span id="star3" class="fa fa-star"></span>
+            <span id="star4" class="fa fa-star"></span>
+            <span id="star5" class="fa fa-star"></span>
             <% break; %>
            <% case 3: %>
-            <span class="fa fa-star checked"></span>
-            <span class="fa fa-star checked"></span>
-            <span class="fa fa-star checked"></span>
-            <span class="fa fa-star"></span>
-            <span class="fa fa-star"></span>
+            <span id="star1" class="fa fa-star checked"></span>
+            <span id="star2" class="fa fa-star checked"></span>
+            <span id="star3" class="fa fa-star checked"></span>
+            <span id="star4" class="fa fa-star"></span>
+            <span id="star5" class="fa fa-star"></span>
             <% break; %>
            <% case 4: %>
-            <span class="fa fa-star checked"></span>
-            <span class="fa fa-star checked"></span>
-            <span class="fa fa-star checked"></span>
-            <span class="fa fa-star checked"></span>
-            <span class="fa fa-star"></span>
+            <span id="star1" class="fa fa-star checked"></span>
+            <span id="star2" class="fa fa-star checked"></span>
+            <span id="star3" class="fa fa-star checked"></span>
+            <span id="star4" class="fa fa-star checked"></span>
+            <span id="star5" class="fa fa-star"></span>
             <% break; %>
            <% case 5: %>
-            <span class="fa fa-star checked"></span>
-            <span class="fa fa-star checked"></span>
-            <span class="fa fa-star checked"></span>
-            <span class="fa fa-star checked"></span>
-            <span class="fa fa-star checked"></span>
+            <span id="star1" class="fa fa-star checked"></span>
+            <span id="star2" class="fa fa-star checked"></span>
+            <span id="star3" class="fa fa-star checked"></span>
+            <span id="star4" class="fa fa-star checked"></span>
+            <span id="star5" class="fa fa-star checked"></span>
             <% break; %>
            default: %>
             <% console.log('ouch'); %>
@@ -82,15 +83,15 @@
         <button type="submit">Like this!</button>
       <% } %>
       </form>
-
+      <form>
+        <textarea class="id_data"><%= resources.id %></textarea>
+      </form>
 
 
   <% } else { %>
       <h3>no resources</h3>
     <% } %>
-    <form>
-      <textarea class="id_data"><%= resources.id %></textarea>
-    </form>
+
 </body>
 </html>
 
