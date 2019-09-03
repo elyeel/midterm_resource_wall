@@ -40,7 +40,7 @@ $(document).ready(function(){
     postRating(5, resourceId);
   });
 
-
+  console.log("testing");
   $('#comment_form').submit(function(event){
     event.preventDefault();
 
