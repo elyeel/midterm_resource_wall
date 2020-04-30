@@ -28,7 +28,7 @@
     "pg-native": "^3.0.0"
   },
   "devDependencies": {
-    "jquery": "^3.4.1",
+    "jquery": "^3.5.0",
     "nodemon": "^1.19.1"
   }
 }
